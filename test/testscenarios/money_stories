@@ -1,0 +1,9 @@
+Story: Money should behave as expected
+
+Scenario:
+Given I have a Money element with '20' euros in it
+Then it should contain '2000' euro cents
+
+Given I have a Money element with '20' euros in it
+When I have another Money element with '30' euros in it
+Then the first element should have less cents than the second
