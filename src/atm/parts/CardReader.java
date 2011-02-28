@@ -13,10 +13,16 @@ public class CardReader{
 	public static final int CARD_UNREADABLE = 1;
 	public static final int CARD_READ = 2;
 	
+	/* Constructor */
+	
 	public CardReader(){
 		status = NO_CARD;
 	}
 	
+	
+	/** 
+	 * Simulates the ejection of a debit card
+	 */
 	public void ejectCard(){
 		try{
 			Thread.sleep(2000);
@@ -24,11 +30,18 @@ public class CardReader{
 		status = NO_CARD;
 	}
 	
+	/**
+	 * Checks if there is a card in the card reader and returns its status
+	 * Check the private constants at the beginning of the file for more info about the satus codes
+	 * 
+	 * @return a status code
+	 */
 	public synchronized int checkForCard(){
 		try{
 			wait(1000);
 		}catch(InterruptedException e){}
 		
+		/* We don't have any REAL card reader so we ask the user to type the card number */
 		Scanner input = new Scanner(System.in);
 		String cardNumber = input.nextLine();
 		
@@ -45,6 +58,12 @@ public class CardReader{
 		return status;
 	}
 	
+	
+	/**
+	 * Returns the number of the card read
+	 * 
+	 * @return card number for current session
+	 */
 	public int cardNumber(){
 		return cardNumberRead;
 	}

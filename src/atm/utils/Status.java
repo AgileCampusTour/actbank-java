@@ -1,5 +1,9 @@
 package atm.utils;
 
+/**
+ * Defines some status returned by the ATM
+ */
+
 public class Status{
     public static final int SUCCESS = 0;
     public static final int TOO_LITTLE_CASH = 1;
